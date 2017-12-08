@@ -10,6 +10,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const hoursH2 = document.getElementById('hours2');
     const time2 = document.getElementById('time2');
 
+    /*  UPDATES TIME AND HANDS ROTATION ON THE CLOCK  */
     function getTime() {
         const date = new Date();
         const sec = date.getSeconds();
@@ -18,16 +19,15 @@ document.addEventListener('DOMContentLoaded', function() {
         
         secondsH.style.transform = (`rotate(${sec*6}deg)`);
         minutesH.style.transform = (`rotate(${min*6}deg)`);
-        hoursH.style.transform = (`rotate(${hour*6}deg)`);
+        hoursH.style.transform = (`rotate(${hour*30}deg)`);
         time.innerText = `${hour<10?"0":""}${hour}:${min<10?"0":""}${min}:${sec<10?"0":""}${sec}`;
 
         secondsH2.style.transform = (`rotate(${-sec*6+180}deg)`);
         minutesH2.style.transform = (`rotate(${-min*6+180}deg)`);
-        hoursH2.style.transform = (`rotate(${-hour*6+180}deg)`);
+        hoursH2.style.transform = (`rotate(${-hour*30+180}deg)`);
         time2.innerText = `${hour<10?"0":""}${hour}:${min<10?"0":""}${min}:${sec<10?"0":""}${sec}`;
-
     }
-
     var tick = setInterval(getTime, 1000);
+
 
 })
